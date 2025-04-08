@@ -1,0 +1,87 @@
+{
+  "kind": "collectionType",
+  "collectionName": "shops",
+  "info": {
+    "singularName": "shop",
+    "pluralName": "shops",
+    "displayName": "Shop"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "name",
+      "required": true
+    },
+    "description": {
+      "type": "blocks"
+    },
+    "hero_image": {
+      "allowedTypes": [
+        "images",
+        "files"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "contact_phone": {
+      "type": "string"
+    },
+    "contact_email": {
+      "type": "email"
+    },
+    "country": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::country.country",
+      "inversedBy": "shops"
+    },
+    "region": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::region.region",
+      "inversedBy": "shops"
+    },
+    "fishing_spot": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::fishing-spot.fishing-spot",
+      "inversedBy": "shops"
+    },
+    "fishing_methods": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::fishing-method.fishing-method"
+    },
+    "business_type": {
+      "type": "enumeration",
+      "enum": [
+        "shop"
+      ],
+      "default": "shop"
+    },
+    "verified": {
+      "type": "boolean",
+      "default": false
+    },
+    "premium": {
+      "type": "boolean",
+      "default": false
+    },
+    "price_range": {
+      "type": "string"
+    },
+    "additional_info": {
+      "type": "text"
+    },
+    "shop": {
+      "type": "json"
+    }
+  }
+}

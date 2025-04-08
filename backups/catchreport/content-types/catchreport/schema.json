@@ -1,0 +1,72 @@
+{
+    "kind": "collectionType",
+    "collectionName": "catchreports",
+    "info": {
+      "singularName": "catchreport",
+      "pluralName": "catchreports",
+      "displayName": "Catch Report"
+    },
+    "options": {
+      "draftAndPublish": true
+    },
+    "attributes": {
+      "date_caught": {
+        "type": "datetime",
+        "required": true
+      },
+      "species": {
+        "type": "string",
+        "required": true
+      },
+      "weight": {
+        "type": "decimal",
+        "required": true
+      },
+      "note": {
+        "type": "text"
+      },
+      "fish_pic": {
+        "type": "media",
+        "multiple": false,
+        "allowedTypes": ["images"]
+      },
+      "scales_proof": {
+        "type": "media",
+        "multiple": false,
+        "allowedTypes": ["images"]
+      },
+      "bait_pic": {
+        "type": "media",
+        "multiple": false,
+        "allowedTypes": ["images"]
+      },
+      "bait_tackle": {
+        "type": "string"
+      },
+      "is_public": {
+        "type": "boolean",
+        "default": false
+      },
+      "points": {
+        "type": "integer",
+        "default": 0
+      },
+      "user": {
+        "type": "relation",
+        "relation": "manyToOne",
+        "target": "plugin::users-permissions.user",
+        "required": true
+      },
+      "fishing_spot": {
+        "type": "relation",
+        "relation": "manyToOne",
+        "target": "api::fishingspot.fishingspot"
+      },
+      "business": {
+        "type": "relation",
+        "relation": "manyToOne",
+        "target": "api::business.business"
+      }
+    }
+  }
+  

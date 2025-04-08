@@ -1,0 +1,41 @@
+{
+    "kind": "collectionType",
+    "collectionName": "reviews",
+    "info": {
+      "singularName": "review",
+      "pluralName": "reviews",
+      "displayName": "Review"
+    },
+    "options": {
+      "draftAndPublish": false
+    },
+    "attributes": {
+      "rating": {
+        "type": "integer",
+        "required": true
+      },
+      "comment": {
+        "type": "text",
+        "required": true
+      },
+      "likes": {
+        "type": "integer",
+        "default": 0
+      },
+      "dislikes": {
+        "type": "integer",
+        "default": 0
+      },
+      "user": {
+        "type": "relation",
+        "relation": "manyToOne",
+        "target": "plugin::users-permissions.user"
+      },
+      "venue": {
+        "type": "relation",
+        "relation": "manyToOne",
+        "target": "api::fishingspot.fishingspot"
+      }
+    }
+  }
+  

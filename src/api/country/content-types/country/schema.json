@@ -1,0 +1,112 @@
+{
+  "kind": "collectionType",
+  "collectionName": "countries",
+  "info": {
+    "singularName": "country",
+    "pluralName": "countries",
+    "displayName": "Country",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "name",
+      "required": true
+    },
+    "description": {
+      "type": "blocks"
+    },
+    "hero_image": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files"
+      ]
+    },
+    "seo_metadata": {
+      "type": "json"
+    },
+    "tip": {
+      "displayName": "anglers_tips",
+      "type": "component",
+      "repeatable": true,
+      "component": "tips.anglers-tips"
+    },
+    "our_tips": {
+      "displayName": "our_tips",
+      "type": "component",
+      "repeatable": true,
+      "component": "tips.our-tips"
+    },
+    "regions": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::region.region",
+      "mappedBy": "country"
+    },
+    "fishing_spots": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::fishing-spot.fishing-spot",
+      "mappedBy": "country"
+    },
+    "fishing_charters": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::fishing-charter.fishing-charter",
+      "mappedBy": "country"
+    },
+    "fa_qs": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::faq.faq",
+      "mappedBy": "country"
+    },
+    "fishing_methods": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::fishing-method.fishing-method",
+      "mappedBy": "countries"
+    },
+    "fishing_instructors": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::fishing-instructor.fishing-instructor",
+      "mappedBy": "country"
+    },
+    "day_tickets": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::day-ticket.day-ticket",
+      "mappedBy": "country"
+    },
+    "tournament_organisers": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::tournament-organiser.tournament-organiser",
+      "mappedBy": "country"
+    },
+    "fishing_retreats": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::fishing-retreat.fishing-retreat",
+      "mappedBy": "country"
+    },
+    "shops": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::shop.shop",
+      "mappedBy": "country"
+    }
+  }
+}

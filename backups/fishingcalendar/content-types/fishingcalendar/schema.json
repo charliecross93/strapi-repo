@@ -1,0 +1,32 @@
+{
+    "kind": "collectionType",
+    "collectionName": "fishingcalendars",
+    "info": {
+      "singularName": "fishingcalendar",
+      "pluralName": "fishingcalendars",
+      "displayName": "Fishing Calendar"
+    },
+    "options": {
+      "draftAndPublish": true
+    },
+    "attributes": {
+      "event_title": {
+        "type": "string",
+        "required": true
+      },
+      "description": {
+        "type": "richtext"
+      },
+      "event_date": {
+        "type": "datetime",
+        "required": true
+      },
+      "location": {
+        "type": "string"
+      },
+      "external_data": {
+        "type": "json"
+      }
+    }
+  }
+  

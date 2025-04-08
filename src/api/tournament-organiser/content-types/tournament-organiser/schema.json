@@ -1,0 +1,78 @@
+{
+  "kind": "collectionType",
+  "collectionName": "tournament_organisers",
+  "info": {
+    "singularName": "tournament-organiser",
+    "pluralName": "tournament-organisers",
+    "displayName": "Tournament Organiser"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "name",
+      "required": true
+    },
+    "description": {
+      "type": "blocks"
+    },
+    "hero_image": {
+      "allowedTypes": [
+        "images",
+        "files"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "contact_phone": {
+      "type": "string"
+    },
+    "contact_email": {
+      "type": "email"
+    },
+    "country": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::country.country",
+      "inversedBy": "tournament_organisers"
+    },
+    "region": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::region.region",
+      "inversedBy": "tournament_organisers"
+    },
+    "business_type": {
+      "type": "enumeration",
+      "enum": [
+        "tournament-organiser"
+      ]
+    },
+    "verified": {
+      "type": "boolean",
+      "default": false
+    },
+    "premium": {
+      "type": "boolean",
+      "default": false
+    },
+    "price_range": {
+      "type": "string"
+    },
+    "additional_info": {
+      "type": "text"
+    },
+    "amenities": {
+      "type": "json"
+    },
+    "tournament_schedule": {
+      "type": "json"
+    }
+  }
+}

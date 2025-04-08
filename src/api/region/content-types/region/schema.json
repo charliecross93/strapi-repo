@@ -1,0 +1,110 @@
+{
+  "kind": "collectionType",
+  "collectionName": "regions",
+  "info": {
+    "singularName": "region",
+    "pluralName": "regions",
+    "displayName": "Region",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true,
+      "unique": false
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "name",
+      "required": true
+    },
+    "description": {
+      "type": "blocks"
+    },
+    "hero_image": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files"
+      ]
+    },
+    "blog_post": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::blog-post.blog-post"
+    },
+    "country": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::country.country",
+      "inversedBy": "regions"
+    },
+    "fishing_spots": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::fishing-spot.fishing-spot",
+      "mappedBy": "region"
+    },
+    "fishing_charters": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::fishing-charter.fishing-charter",
+      "mappedBy": "region"
+    },
+    "fa_qs": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::faq.faq",
+      "mappedBy": "region"
+    },
+    "fishing_method": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::fishing-method.fishing-method",
+      "inversedBy": "regions"
+    },
+    "fishing_instructors": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::fishing-instructor.fishing-instructor",
+      "mappedBy": "region"
+    },
+    "Type": {
+      "type": "enumeration",
+      "enum": [
+        "County",
+        "City",
+        "Sea"
+      ]
+    },
+    "day_tickets": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::day-ticket.day-ticket",
+      "mappedBy": "region"
+    },
+    "tournament_organisers": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::tournament-organiser.tournament-organiser",
+      "mappedBy": "region"
+    },
+    "fishing_retreats": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::fishing-retreat.fishing-retreat",
+      "mappedBy": "region"
+    },
+    "shops": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::shop.shop",
+      "mappedBy": "region"
+    }
+  }
+}

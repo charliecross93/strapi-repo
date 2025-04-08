@@ -1,0 +1,95 @@
+{
+    "kind": "collectionType",
+    "collectionName": "fishingspots",
+    "info": {
+      "singularName": "fishingspot",
+      "pluralName": "fishingspots",
+      "displayName": "Fishing Spot"
+    },
+    "options": {
+      "draftAndPublish": true
+    },
+    "attributes": {
+      "name": {
+        "type": "string",
+        "required": true
+      },
+      "slug": {
+        "type": "uid",
+        "targetField": "name",
+        "required": true,
+        "unique": true
+      },
+      "description": {
+        "type": "richtext"
+      },
+      "country": {
+        "type": "string",
+        "required": true
+      },
+      "region": {
+        "type": "string",
+        "required": true
+      },
+      "location": {
+        "type": "string",
+        "required": true
+      },
+      "lat": {
+        "type": "decimal",
+        "required": true
+      },
+      "lng": {
+        "type": "decimal",
+        "required": true
+      },
+      "species": {
+        "type": "string",
+        "repeatable": true
+      },
+      "category": {
+        "type": "string",
+        "repeatable": true
+      },
+      "water_type": {
+        "type": "string"
+      },
+      "price": {
+        "type": "decimal",
+        "default": 0
+      },
+      "rating": {
+        "type": "decimal",
+        "default": 0
+      },
+      "largest_catch": {
+        "type": "decimal",
+        "default": 0
+      },
+      "hero_image": {
+        "type": "media",
+        "multiple": false,
+        "allowedTypes": ["images"]
+      },
+      "additional_info": {
+        "type": "json"
+      },
+      "amenities": {
+        "type": "string",
+        "repeatable": true
+      },
+      "opening_hours": {
+        "type": "json"
+      },
+      "rules": {
+        "type": "text"
+      },
+      "contact_details": {
+        "type": "json"
+      },
+      "method": {
+        "type": "string"
+      }
+    }
+  }
+  

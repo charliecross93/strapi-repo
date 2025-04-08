@@ -1,0 +1,38 @@
+{
+    "kind": "collectionType",
+    "collectionName": "users", 
+    "info": {
+      "singularName": "custom-user",
+      "pluralName": "custom-users",
+      "displayName": "Custom User"
+    },
+    "options": {
+      "draftAndPublish": false
+    },
+    "attributes": {
+      "email": {
+        "type": "email",
+        "unique": true,
+        "required": true
+      },
+      "password": {
+        "type": "string"
+      },
+      "name": {
+        "type": "string"
+      },
+      "role": {
+        "type": "string"
+      },
+      "favorites": {
+        "type": "json"
+      },
+      "created_at": {
+        "type": "datetime"
+      },
+      "updated_at": {
+        "type": "datetime"
+      }
+    }
+  }
+  

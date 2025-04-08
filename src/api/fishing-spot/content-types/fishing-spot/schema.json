@@ -1,0 +1,153 @@
+{
+  "kind": "collectionType",
+  "collectionName": "fishing_spots",
+  "info": {
+    "singularName": "fishing-spot",
+    "pluralName": "fishing-spots",
+    "displayName": "FishingSpots",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "attributes": {
+    "attributes": {
+      "type": "string",
+      "required": true
+    },
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "name",
+      "required": true
+    },
+    "description": {
+      "type": "blocks"
+    },
+    "lat": {
+      "type": "decimal",
+      "required": true
+    },
+    "lng": {
+      "type": "decimal",
+      "required": true
+    },
+    "price": {
+      "type": "decimal",
+      "default": 0
+    },
+    "rating": {
+      "type": "decimal",
+      "default": 0
+    },
+    "largest_catch": {
+      "type": "decimal",
+      "default": 0
+    },
+    "hero_image": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files"
+      ]
+    },
+    "additional_info": {
+      "type": "json"
+    },
+    "amenities": {
+      "displayName": "amenities",
+      "type": "component",
+      "repeatable": true,
+      "component": "content-tools.amenities"
+    },
+    "opening_hours": {
+      "type": "json"
+    },
+    "rules": {
+      "type": "string"
+    },
+    "contact_details": {
+      "type": "json"
+    },
+    "method": {
+      "type": "string"
+    },
+    "country": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::country.country",
+      "inversedBy": "fishing_spots"
+    },
+    "region": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::region.region",
+      "inversedBy": "fishing_spots"
+    },
+    "fishing_charters": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::fishing-charter.fishing-charter",
+      "mappedBy": "fishing_spot"
+    },
+    "fa_qs": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::faq.faq",
+      "mappedBy": "fishing_spot"
+    },
+    "fishing_methods": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::fishing-method.fishing-method",
+      "mappedBy": "fishing_spots"
+    },
+    "fishing_instructors": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::fishing-instructor.fishing-instructor",
+      "mappedBy": "fishing_spot"
+    },
+    "water_type": {
+      "type": "enumeration",
+      "enum": [
+        "ocean",
+        "sea",
+        "rivermouth",
+        "river",
+        "pond",
+        "lake",
+        "canal"
+      ],
+      "required": true
+    },
+    "day_tickets": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::day-ticket.day-ticket",
+      "mappedBy": "fishing_spot"
+    },
+    "fishing_retreats": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::fishing-retreat.fishing-retreat",
+      "mappedBy": "fishing_spot"
+    },
+    "shops": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::shop.shop",
+      "mappedBy": "fishing_spot"
+    },
+    "fish_species": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::single-fish-species.single-fish-species"
+    }
+  }
+}

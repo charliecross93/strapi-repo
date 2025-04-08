@@ -1,0 +1,97 @@
+{
+  "kind": "collectionType",
+  "collectionName": "fishing_charters",
+  "info": {
+    "singularName": "fishing-charter",
+    "pluralName": "fishing-charters",
+    "displayName": "Fishing Charter",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "attributes": {
+    "Name": {
+      "type": "string",
+      "required": true
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "Name",
+      "required": true
+    },
+    "description": {
+      "type": "blocks"
+    },
+    "hero_image": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files"
+      ]
+    },
+    "contact_phone": {
+      "type": "string"
+    },
+    "contact_email": {
+      "type": "email"
+    },
+    "business_type": {
+      "type": "enumeration",
+      "enum": [
+        "fishing-charters"
+      ],
+      "required": true,
+      "default": "fishing-charters"
+    },
+    "premium": {
+      "type": "boolean",
+      "default": false
+    },
+    "verified": {
+      "type": "boolean",
+      "default": false
+    },
+    "details": {
+      "type": "json"
+    },
+    "boat_name": {
+      "type": "string"
+    },
+    "capacity": {
+      "type": "integer"
+    },
+    "itinerary": {
+      "type": "string"
+    },
+    "captain_bio": {
+      "type": "string"
+    },
+    "country": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::country.country",
+      "inversedBy": "fishing_charters"
+    },
+    "region": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::region.region",
+      "inversedBy": "fishing_charters"
+    },
+    "fishing_spot": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::fishing-spot.fishing-spot",
+      "inversedBy": "fishing_charters"
+    },
+    "price_range": {
+      "type": "string"
+    },
+    "amenities": {
+      "type": "json"
+    }
+  }
+}

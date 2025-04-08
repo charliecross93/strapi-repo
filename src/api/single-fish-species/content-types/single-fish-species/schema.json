@@ -1,0 +1,52 @@
+{
+  "kind": "collectionType",
+  "collectionName": "fish_species",
+  "info": {
+    "singularName": "single-fish-species",
+    "pluralName": "fish-species",
+    "displayName": "Fish Species",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "slug": {
+      "type": "uid",
+      "required": true,
+      "targetField": "name"
+    },
+    "description": {
+      "type": "blocks"
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files"
+      ]
+    },
+    "fishing_instructors": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::fishing-instructor.fishing-instructor",
+      "mappedBy": "fish_species"
+    },
+    "scientific_name": {
+      "type": "string"
+    },
+    "fishing_methods": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::fishing-method.fishing-method",
+      "mappedBy": "fish_species"
+    }
+  }
+}

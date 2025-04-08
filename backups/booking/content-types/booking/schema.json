@@ -1,0 +1,42 @@
+{
+    "kind": "collectionType",
+    "collectionName": "bookings",
+    "info": {
+      "singularName": "booking",
+      "pluralName": "bookings",
+      "displayName": "Booking"
+    },
+    "options": {
+      "draftAndPublish": true
+    },
+    "attributes": {
+      "booking_date": {
+        "type": "datetime",
+        "required": true
+      },
+      "status": {
+        "type": "enumeration",
+        "enum": ["pending", "confirmed", "cancelled"],
+        "default": "pending"
+      },
+      "details": {
+        "type": "text"
+      },
+      "user": {
+        "type": "relation",
+        "relation": "manyToOne",
+        "target": "plugin::users-permissions.user"
+      },
+      "fishing_spot": {
+        "type": "relation",
+        "relation": "manyToOne",
+        "target": "api::fishingspot.fishingspot"
+      },
+      "business": {
+        "type": "relation",
+        "relation": "manyToOne",
+        "target": "api::business.business"
+      }
+    }
+  }
+  

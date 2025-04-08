@@ -1,0 +1,43 @@
+{
+    "kind": "collectionType",
+    "collectionName": "newsarticles",
+    "info": {
+      "singularName": "newsarticle",
+      "pluralName": "newsarticles",
+      "displayName": "News Article"
+    },
+    "options": {
+      "draftAndPublish": true
+    },
+    "attributes": {
+      "title": {
+        "type": "string",
+        "required": true
+      },
+      "slug": {
+        "type": "uid",
+        "targetField": "title",
+        "required": true,
+        "unique": true
+      },
+      "content": {
+        "type": "richtext",
+        "required": true
+      },
+      "author": {
+        "type": "relation",
+        "relation": "manyToOne",
+        "target": "plugin::users-permissions.user"
+      },
+      "hero_image": {
+        "type": "media",
+        "multiple": false,
+        "allowedTypes": ["images"]
+      },
+      "tags": {
+        "type": "string",
+        "repeatable": true
+      }
+    }
+  }
+  
