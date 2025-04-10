@@ -4,7 +4,7 @@
   "private": true,
   "description": "A Strapi application",
   "scripts": {
-    "build": "strapi build",
+    "build": "cross-env NODE_OPTIONS=--max_old_space_size=8192 strapi build",
     "console": "strapi console",
     "deploy": "strapi deploy",
     "dev": "strapi develop",
@@ -28,6 +28,7 @@
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
+    "cross-env": "^7.0.3",
     "typescript": "^5"
   },
   "engines": {
