@@ -1,9 +1,5 @@
 // config/admin.ts
 export default ({ env }) => ({
-  // mount the admin panel at /cms instead of /admin
-  serveAdminPanel: true,
-  path: '/cms',
-
   auth: {
     secret: env('STRAPI_ADMIN_JWT_SECRET'),
   },
@@ -13,7 +9,9 @@ export default ({ env }) => ({
   },
 
   transfer: {
-    token: { salt: env('TRANSFER_TOKEN_SALT', '…') },
+    token: {
+      salt: env('TRANSFER_TOKEN_SALT', '…'),
+    },
   },
 
   flags: {
