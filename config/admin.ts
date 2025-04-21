@@ -1,3 +1,4 @@
+// config/admin.ts
 export default ({ env }) => ({
   // mount the admin panel at /cms instead of /admin
   serveAdminPanel: true,
@@ -8,21 +9,15 @@ export default ({ env }) => ({
   },
 
   apiToken: {
-    salt: env('API_TOKEN_SALT', 'CjS8IQNp8acHGIWR5RU6Xw=='),
+    salt: env('API_TOKEN_SALT', '…'),
   },
 
   transfer: {
-    token: {
-      salt: env('TRANSFER_TOKEN_SALT', 'defaultTransferSalt'),
-    },
+    token: { salt: env('TRANSFER_TOKEN_SALT', '…') },
   },
 
   flags: {
     nps: env.bool('FLAG_NPS', true),
     promoteEE: env.bool('FLAG_PROMOTE_EE', true),
   },
-
-  // this is the *route* your admin UI will be served on
-  // (we’ll be reverse‑proxying /cms → Strapi’s /)
-  url: env('ADMIN_PATH', '/cms'),
 });
