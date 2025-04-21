@@ -1,10 +1,17 @@
-// config/server.ts
 export default ({ env }) => ({
   host: env('HOST', '0.0.0.0'),
   port: env.int('PORT', 1337),
-  url: env('STRAPI_PUBLIC_URL', 'https://staging.fishplanner.com'),
-  proxy: true,
+
+  // tell Strapi its public‑facing URL (so redirects, links, CORS, etc. are correct)
+  url: env('STRAPI_PUBLIC_URL'),
+
+  // trust the proxy headers (X‑Forwarded‑For, X‑Forwarded‑Proto)
+  proxy: {
+    enabled: true,
+  },
+
   app: {
-    keys: env.array('APP_KEYS', ['mySecretKey1','mySecretKey2']),
+    // your existing APP_KEYS
+    keys: env.array('APP_KEYS', ['mySecretKey1', 'mySecretKey2']),
   },
 });
