@@ -1,13 +1,12 @@
 // config/admin.ts
 export default ({ env }) => ({
-  // — mount the admin panel at /admin
-  serveAdminPanel: true,
-  path: '/admin',
+  // This tells Strapi “I’m mounted at /admin, so serve
+  // my JS/CSS from /admin/…”
+  build: {
+    publicPath: '/admin/',
+  },
 
-  // — if your proxy or CORS setup means the UI needs to know its own backend URL:
-  backendUrl: env('STRAPI_PUBLIC_URL', 'https://staging.fishplanner.com'),
-
-  // — your existing auth / token / flags settings:
+  // Keep your auth/tokens/flags here if you need them
   auth: {
     secret: env('STRAPI_ADMIN_JWT_SECRET'),
   },

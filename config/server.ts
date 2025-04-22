@@ -3,15 +3,13 @@ export default ({ env }) => ({
   host: env('HOST', '0.0.0.0'),
   port: env.int('PORT', 1337),
 
-  // — your public‑facing URL so Strapi generates correct links & CSP:
+  // so Strapi builds correct absolute URLs
   url: env('STRAPI_PUBLIC_URL', 'https://staging.fishplanner.com'),
 
-  // — trust the proxy headers (X‑Forwarded‑For, X‑Forwarded‑Proto):
-  proxy: {
-    enabled: true,
-  },
+  // we’re behind an Nginx proxy
+  proxy: { enabled: true },
 
-  // — serve the admin UI under /admin (not at root)
+  // mount the Strapi Admin UI under /admin
   admin: {
     path: '/admin',
   },
