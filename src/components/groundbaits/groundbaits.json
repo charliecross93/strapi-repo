@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_groundbaits_groundbaits",
+  "info": {
+    "displayName": "Groundbaits",
+    "icon": "bold"
+  },
+  "options": {},
+  "attributes": {
+    "season": {
+      "type": "string"
+    },
+    "groundbaitmixture": {
+      "type": "text"
+    }
+  }
+}

@@ -1,0 +1,73 @@
+{
+  "kind": "collectionType",
+  "collectionName": "region_fish_species",
+  "info": {
+    "singularName": "region-fish-specie",
+    "pluralName": "region-fish-species",
+    "displayName": "Region Fish Species"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "Name": {
+      "type": "string"
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "Name",
+      "required": true
+    },
+    "Intro": {
+      "type": "blocks"
+    },
+    "Body": {
+      "type": "blocks"
+    },
+    "region": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::region.region",
+      "inversedBy": "region_fish_species"
+    },
+    "fishing_spots": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::fishing-spot.fishing-spot"
+    },
+    "guides": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::guide.guide"
+    },
+    "fishing_instructors": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::fishing-instructor.fishing-instructor"
+    },
+    "news_articles": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::news-article.news-article"
+    },
+    "SEOMetaData": {
+      "type": "json"
+    },
+    "UserTip": {
+      "displayName": "UserTip",
+      "type": "component",
+      "repeatable": true,
+      "component": "user-tip.user-tip"
+    },
+    "Groundbaits": {
+      "type": "component",
+      "repeatable": true,
+      "component": "groundbaits.groundbaits"
+    },
+    "SeasonalActivity": {
+      "type": "component",
+      "repeatable": true,
+      "component": "seasonal-activity.seasonal-activity"
+    }
+  }
+}

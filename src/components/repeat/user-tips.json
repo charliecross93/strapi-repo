@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_repeat_user_tips",
+  "info": {
+    "displayName": "User Tips",
+    "icon": "user"
+  },
+  "options": {},
+  "attributes": {
+    "TExt": {
+      "type": "string"
+    },
+    "Author": {
+      "type": "string"
+    },
+    "Date": {
+      "type": "date"
+    }
+  }
+}

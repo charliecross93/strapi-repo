@@ -402,6 +402,63 @@ export interface ApiBlogPostBlogPost extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiCountryFishSpecieCountryFishSpecie
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'country_fish_species';
+  info: {
+    displayName: 'Country Fish Species';
+    pluralName: 'country-fish-species';
+    singularName: 'country-fish-specie';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    BaitsandLures: Schema.Attribute.Component<
+      'baitsand-lures.baits-and-lures',
+      true
+    >;
+    Body: Schema.Attribute.Blocks;
+    country: Schema.Attribute.Relation<'manyToOne', 'api::country.country'>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    fishing_instructors: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::fishing-instructor.fishing-instructor'
+    >;
+    fishing_spots: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::fishing-spot.fishing-spot'
+    >;
+    Groundbaits: Schema.Attribute.Component<'groundbaits.groundbaits', true>;
+    guides: Schema.Attribute.Relation<'oneToMany', 'api::guide.guide'>;
+    Intro: Schema.Attribute.Blocks;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::country-fish-specie.country-fish-specie'
+    > &
+      Schema.Attribute.Private;
+    Name: Schema.Attribute.String & Schema.Attribute.Required;
+    news_articles: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::news-article.news-article'
+    >;
+    publishedAt: Schema.Attribute.DateTime;
+    SeasonalActivity: Schema.Attribute.Component<
+      'seasonal-activity.seasonal-activity',
+      true
+    >;
+    SEOMetadata: Schema.Attribute.JSON;
+    slug: Schema.Attribute.UID<'Name'> & Schema.Attribute.Required;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    UserTip: Schema.Attribute.Component<'repeat.user-tips', true>;
+  };
+}
+
 export interface ApiCountryCountry extends Struct.CollectionTypeSchema {
   collectionName: 'countries';
   info: {
@@ -414,6 +471,10 @@ export interface ApiCountryCountry extends Struct.CollectionTypeSchema {
     draftAndPublish: false;
   };
   attributes: {
+    country_fish_species: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::country-fish-specie.country-fish-specie'
+    >;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -939,6 +1000,59 @@ export interface ApiNewsArticleNewsArticle extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiRegionFishSpecieRegionFishSpecie
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'region_fish_species';
+  info: {
+    displayName: 'Region Fish Species';
+    pluralName: 'region-fish-species';
+    singularName: 'region-fish-specie';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Body: Schema.Attribute.Blocks;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    fishing_instructors: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::fishing-instructor.fishing-instructor'
+    >;
+    fishing_spots: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::fishing-spot.fishing-spot'
+    >;
+    Groundbaits: Schema.Attribute.Component<'groundbaits.groundbaits', true>;
+    guides: Schema.Attribute.Relation<'oneToMany', 'api::guide.guide'>;
+    Intro: Schema.Attribute.Blocks;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::region-fish-specie.region-fish-specie'
+    > &
+      Schema.Attribute.Private;
+    Name: Schema.Attribute.String;
+    news_articles: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::news-article.news-article'
+    >;
+    publishedAt: Schema.Attribute.DateTime;
+    region: Schema.Attribute.Relation<'manyToOne', 'api::region.region'>;
+    SeasonalActivity: Schema.Attribute.Component<
+      'seasonal-activity.seasonal-activity',
+      true
+    >;
+    SEOMetaData: Schema.Attribute.JSON;
+    slug: Schema.Attribute.UID<'Name'> & Schema.Attribute.Required;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    UserTip: Schema.Attribute.Component<'user-tip.user-tip', true>;
+  };
+}
+
 export interface ApiRegionRegion extends Struct.CollectionTypeSchema {
   collectionName: 'regions';
   info: {
@@ -994,6 +1108,10 @@ export interface ApiRegionRegion extends Struct.CollectionTypeSchema {
       Schema.Attribute.Private;
     name: Schema.Attribute.String & Schema.Attribute.Required;
     publishedAt: Schema.Attribute.DateTime;
+    region_fish_species: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::region-fish-specie.region-fish-specie'
+    >;
     shops: Schema.Attribute.Relation<'oneToMany', 'api::shop.shop'>;
     slug: Schema.Attribute.UID<'name'> & Schema.Attribute.Required;
     tournament_organisers: Schema.Attribute.Relation<
@@ -1656,6 +1774,7 @@ declare module '@strapi/strapi' {
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'admin::user': AdminUser;
       'api::blog-post.blog-post': ApiBlogPostBlogPost;
+      'api::country-fish-specie.country-fish-specie': ApiCountryFishSpecieCountryFishSpecie;
       'api::country.country': ApiCountryCountry;
       'api::day-ticket.day-ticket': ApiDayTicketDayTicket;
       'api::faq.faq': ApiFaqFaq;
@@ -1666,6 +1785,7 @@ declare module '@strapi/strapi' {
       'api::fishing-spot.fishing-spot': ApiFishingSpotFishingSpot;
       'api::guide.guide': ApiGuideGuide;
       'api::news-article.news-article': ApiNewsArticleNewsArticle;
+      'api::region-fish-specie.region-fish-specie': ApiRegionFishSpecieRegionFishSpecie;
       'api::region.region': ApiRegionRegion;
       'api::shop.shop': ApiShopShop;
       'api::single-fish-species.single-fish-species': ApiSingleFishSpeciesSingleFishSpecies;

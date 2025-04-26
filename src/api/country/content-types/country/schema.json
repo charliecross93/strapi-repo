@@ -107,6 +107,12 @@
       "relation": "oneToMany",
       "target": "api::shop.shop",
       "mappedBy": "country"
+    },
+    "country_fish_species": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::country-fish-specie.country-fish-specie",
+      "mappedBy": "country"
     }
   }
 }

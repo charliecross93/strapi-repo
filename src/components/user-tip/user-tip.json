@@ -1,0 +1,24 @@
+{
+  "collectionName": "components_user_tip_user_tips",
+  "info": {
+    "displayName": "UserTip",
+    "icon": "apps"
+  },
+  "options": {},
+  "attributes": {
+    "Text": {
+      "type": "string"
+    },
+    "Author": {
+      "type": "string"
+    },
+    "Date": {
+      "type": "date"
+    },
+    "baitsandlures": {
+      "type": "component",
+      "repeatable": true,
+      "component": "baitsand-lures.baits-and-lures"
+    }
+  }
+}

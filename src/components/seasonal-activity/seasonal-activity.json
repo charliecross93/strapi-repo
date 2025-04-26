@@ -1,0 +1,34 @@
+{
+  "collectionName": "components_seasonal_activity_seasonal_activities",
+  "info": {
+    "displayName": "Seasonal Activity",
+    "icon": "apps"
+  },
+  "options": {},
+  "attributes": {
+    "season": {
+      "type": "string"
+    },
+    "activefrom": {
+      "type": "date"
+    },
+    "activeto": {
+      "type": "date"
+    },
+    "spawntime": {
+      "type": "string"
+    },
+    "fishingseasonstart": {
+      "type": "date"
+    },
+    "fishingseasonend": {
+      "type": "date"
+    },
+    "closedseasonstart": {
+      "type": "date"
+    },
+    "closedseasonend": {
+      "type": "date"
+    }
+  }
+}

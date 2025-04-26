@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_baitsand_lures_baits_and_lures",
+  "info": {
+    "displayName": "Baits & Lures",
+    "icon": "thumbUp"
+  },
+  "options": {},
+  "attributes": {
+    "season": {
+      "type": "string"
+    },
+    "baits": {
+      "type": "string"
+    },
+    "lures": {
+      "type": "string"
+    }
+  }
+}

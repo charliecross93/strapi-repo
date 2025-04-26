@@ -105,6 +105,12 @@
       "relation": "oneToMany",
       "target": "api::shop.shop",
       "mappedBy": "region"
+    },
+    "region_fish_species": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::region-fish-specie.region-fish-specie",
+      "mappedBy": "region"
     }
   }
 }
