@@ -1,12 +1,13 @@
 // config/plugins.js
-console.log('🔔 plugins.js is loading—users-permissions enabled');
+console.log('🔔 [plugins.js] — loading plugin configuration');
+
 module.exports = ({ env }) => ({
+  // Users & Permissions plugin must be here, enabled
   'users-permissions': {
     enabled: true,
     config: {
       jwtSecret: env('JWT_SECRET'),
-      // any other options…
     },
   },
-  // you can leave other plugins here if needed
+  // …other plugin configs if you have them
 });
