@@ -1,12 +1,12 @@
 // config/admin.ts
 export default ({ env }) => ({
-  // tell the Admin UI which backend to call for its API requests
-  url: env('STRAPI_ADMIN_BACKEND_URL', 'https://staging.fishplanner.com'),
+  // the backend host that serves /api and /admin
+  url: env('STRAPI_ADMIN_BACKEND_URL', 'https://api.staging.fishplanner.com'),
 
-  // serve the built admin panel under /admin
+  // serve the Admin UI at /admin on that host
   serveAdminPanel: true,
 
-  // where the admin’s static files will be served from
+  // static assets live under /admin/
   build: {
     publicPath: '/admin/',
   },
