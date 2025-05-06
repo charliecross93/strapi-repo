@@ -24,12 +24,12 @@
     "Body": {
       "type": "blocks"
     },
-    "region": {
-      "type": "relation",
-      "relation": "manyToOne",
-      "target": "api::region.region",
-      "inversedBy": "region_fish_species"
-    },
+"regions": {
+ "type": "relation",
+ "relation": "manyToMany",
+ "target": "api::region.region",
+ "inversedBy": "country_fish_species"
+},
     "fishing_spots": {
       "type": "relation",
       "relation": "oneToMany",
